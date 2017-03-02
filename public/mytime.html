@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/dateformat.js"></script>
+</head>
+<body>
+
+  <div>
+      <button onclick="getServerTime()">走你</button>
+
+      服务端时间是:<span></span>
+  </div>
+
+</body>
+
+<script>
+    
+    function getServerTime() {
+        var span =  document.querySelector("span");
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("get","http://127.0.0.1:3002/getTime");
+
+        xhr.onreadystatechange  =function () {
+
+            if(xhr.readyState ==4 && xhr.status==200)
+            {
+                 var json = xhr.responseText;
+                var mytime = (JSON.parse(json)).time;
+                console.log(mytime);
+                span.innerHTML=new Date(mytime).format("yyyy-MM-dd hh:mm:ss");
+            }
+        }
+        xhr.send();
+    }
+    
+</script>
+</html>

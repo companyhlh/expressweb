@@ -1,0 +1,17 @@
+<data>
+    <stu>
+        <name>张三</name>
+        <age>28</age>
+        <score>19</score>
+    </stu>
+    <stu>
+        <name>李四</name>
+        <age type="int">19</age>
+        <score>77</score>
+    </stu>
+    <stu>
+        <name>王五</name>
+        <age>21</age>
+        <score>87</score>
+    </stu>
+</data>

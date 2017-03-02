@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <div>
+       <form method="post" action="/reg1">
+       用户名 <input type="text"  id="nameTxt"name="username"><br>
+       密  码 <input type="password" id="pwdTxt" name="pwd"><br>
+       确认密码<input type="password" id="pwd2Txt" name="pwd2"><br>
+           <input type="submit" value="实验提交">
+           </form>
+
+       <button onclick="regUser()">注册</button>
+   </div>
+
+
+
+<script type="application/javascript">
+    
+    
+    function regUser() {
+         var nameTxt = document.getElementById("nameTxt");
+        var pwdTxt = document.getElementById("pwdTxt");
+        var pwd2Txt = document.getElementById("pwd2Txt");
+
+        //1. 创建xmlhttprequest对象
+        var xhr = new XMLHttpRequest()
+        //2. 使用xhr.open打开与服务器的连接
+        var data = "username="+nameTxt.value+"&pwd="+pwdTxt.value+"&pwd2="+pwd2Txt.value;
+                xhr.open("get","/reg?"+data);
+        //3. 指定接收响应的回调函数
+        xhr.onreadystatechange = function () {
+
+            console.log(xhr.status);
+            console.log(xhr.statusText);
+           if(xhr.readyState==4 && xhr.status===200)
+           {
+               alert(xhr.responseText);
+           }
+        }
+
+        //4.向服务端发送请求数据 send函数只能发送post的数据
+        xhr.send()
+        
+    }
+</script>
+
+</body>
+</html>

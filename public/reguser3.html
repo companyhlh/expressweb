@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送使用get发送键值对的字符串</title>
+</head>
+<body>
+
+   <div>
+       用户名 <input type="text"  id="nameTxt"name="username"><br>
+       密  码 <input type="password" id="pwdTxt" name="pwd"><br>
+       确认密码<input type="password" id="pwd2Txt" name="pwd2"><br>
+
+       <button onclick="regUser()">注册</button>
+   </div>
+   <div>
+       <table>
+           <thead>
+             <tr>
+                 <td>编号</td>
+                 <td>用户名</td>
+                 <td>密码</td>
+             </tr>
+           </thead>
+           <tbody>
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+           </tbody>
+       </table>
+   </div>
+
+
+
+<script type="application/javascript">
+    
+    
+    function regUser() {
+        var nameTxt = document.getElementById("nameTxt");
+        var pwdTxt = document.getElementById("pwdTxt");
+        var pwd2Txt = document.getElementById("pwd2Txt");
+
+        var tbody = document.querySelector("tbody");
+        var xhr = new XMLHttpRequest();
+
+        var user =new Object();
+        user.username = nameTxt.value;
+        user.pwd = pwdTxt.value;
+        user.pwd2 = pwd2Txt.value;
+
+        var jsonStr=JSON.stringify(user);
+        console.log(jsonStr);
+
+        var url="http://127.0.0.1:3000/reg2"
+        xhr.open("post",url,true);
+        //在open之后 要设置x-www-form-urlencoded;
+        xhr.setRequestHeader("Content-type","application/json")
+        ;
+        xhr.onreadystatechange= function () {
+            if(xhr.readyState==4 && xhr.status===200)
+            {
+                   var str = xhr.responseText;
+                   console.log(str);
+                    var objLst = JSON.parse(str);
+//                    alert(objLst);
+                //先删除表格中的老数据
+                var trList = tbody.querySelectorAll("tr");
+                trList.forEach(function (tr) {
+                    tbody.removeChild(tr);
+                })
+                objLst.forEach(function (user,index) {
+                      var tr = document.createElement("tr");
+                      var td1 = document.createElement("td");
+                      td1.innerHTML=""+index;
+                      var td2 = document.createElement("td");
+                      td2.innerHTML = user.username
+                      var td3 = document.createElement("td");
+                      td3.innerHTML = user.pwd;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tbody.appendChild(tr);
+                })
+
+            }
+            
+        }
+        xhr.send(jsonStr);
+
+    }
+</script>
+
+</body>
+</html>
