@@ -48,10 +48,5 @@
   ```
   在一个数据集合中保存的数据document可以结构不同
   
-#### 练习
-  1.使用命令行 创建一个名叫 myschool
-  2. 在数据库中创建一个集合名叫  students
-  3. 在students中 使用命令行插入一条数据  有3栏 stuName,stuAge,stuScore
-  4. 使用Robomongo工具创建一个新的集合叫teachers
-  5. 使用工具往teachers中插入数据,数据有3栏  teaName,teaAddres ,teaPhone
+  
   
