@@ -38,7 +38,7 @@ footer.wxml
 2.事件类别
 点击 长按 触摸 touchstart touchend touchmove touchcancel 其他
 3.事件冒泡
-4.事件绑定
+4.事件绑定 bind catch
 5.事件对象详解
 
 
