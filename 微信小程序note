@@ -34,7 +34,9 @@ footer.wxml
 
 （二）事件的使用
 1.什么是事件
+一种用户行为，一种通讯方式
 2.事件类别
+点击 长按 触摸 touchstart touchend touchmove touchcancel 其他
 3.事件冒泡
 4.事件绑定
 5.事件对象详解
