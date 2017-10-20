@@ -1,5 +1,34 @@
 //微信小程序学习笔记
 (1)组件的基本使用
+参照 https://mp.weixin.qq.com/debug/wxadoc/dev/component/ 
 (2)数据绑定
+在data定义数据的内容 在页面上用{{参数}}
 (3)渲染标签
+wx:if="{{}}"
+wx:elsf='{{}}'
+wx:for="{{}}"
+wx:for-item="itemx" //vaule
+wx:for-index='ix' //key
 (4)模板的使用
+定义模板文件，有2种方式
+（1）如在pages 下新建 templates/header.wxml
+header.wxml 
+<text>这是头部模板</text>
+
+在页面上引用模板
+<include src='templates/header'/>
+
+(2)在 pages 下新建 templates/footer.wxml
+footer.wxml
+<template name='footer1'>
+这是底部模板1
+</template>
+<template name='footer2'>
+这是底部模板2
+</template>
+
+在页面上引用模板
+<import src='templates/footer'/>
+<template is='footer1'/>
+
+
