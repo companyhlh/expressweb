@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遮罩效果</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="../jquery.min.js"></script>
+  <!-- <link href="3_1.css" rel="stylesheet">-->
+    <style>
+        .masked {
+            position: relative;
+            width: 320px;
+            height: 240px;
+        }
+        .masked .mask-left {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            top: 0;
+            right: 80%;
+            left: 0;
+            bottom: 0;
+            transition: right 0.5s linear;
+        }
+        .masked .mask-left .mask-left_text {
+            color: orange;
+        }
+        .masked .mask-left:hover {
+            right: 0px;
+        }
+        .masked .mask-dowm {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 80%;
+            transition: bottom 0.5s linear;
+        }
+        .masked .mask-dowm .mask-dowm_text {
+            color: royalblue;
+        }
+        .masked .mask-dowm:hover {
+            bottom: 0px;
+        }
+        .masked .mask-up {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            top: 80%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: top 0.5s linear;
+        }
+        .masked .mask-up .mask-up_text {
+            color: red;
+        }
+        .masked .mask-up:hover {
+            top: 0px;
+        }
+        .masked .mask-right {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            top: 0;
+            left: 80%;
+            bottom: 0;
+            right: 0;
+            transition: left 0.5s linear;
+        }
+        .masked .mask-right .mask-right_text {
+            color: green;
+        }
+        .masked .mask-right:hover {
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>遮罩层显示</h2>
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="masked">
+                        <img src="../img/left.jpg" alt="">
+                        <div class="mask-left">
+                            <p class="mask-left_text">左-----》右</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="masked">
+                        <img src="../img/down.jpg" alt="">
+                        <div class="mask-dowm">
+                            <p class="mask-dowm_text">上----》下</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="masked">
+                        <img src="../img/up.jpg" alt="">
+                        <div class="mask-up">
+                            <p class="mask-up_text">下----》上</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="masked">
+                        <img src="../img/right.jpg" alt="">
+                        <div class="mask-right">
+                            <p class="mask-right_text">右----》左</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
