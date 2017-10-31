@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3 学习 —— 3d翻转
+    </title>
+    <style>
+        /*box-shadow ： inset（内阴影） x偏移量  y偏移量 模糊度  颜色*/
+        .div{width:100px; height:100px; background:#fff;transform:rotate(45deg) scale(1.2) skew(30deg);
+
+        }
+        .container{
+            width:200px; height:280px; position:relative;perspective:800px; margin-top:40px;
+        }
+        .card{
+            width:200px; height:280px; position:absolute; transform-style:preserve-3d;
+            transition:all 1s;
+        }
+        .card .front{
+            position:absolute; display: block; width:200px; height:280px;line-height:280px; font-size:30px; text-align: center; background:green;
+            top:0px; left:0px; margin:0px; padding:0px;
+        }
+        .card .back{
+            position:absolute; display: block;width:200px; height:280px;line-height:280px; font-size:30px; text-align: center; background:red;
+            transform:rotateY(180deg);  top:0px; left:0px; margin:0px; padding:0px;
+        }
+        .card:hover{
+            transform: rotateY( 180deg );
+        }
+    </style>
+</head>
+<body style="background: black; text-align: center">
+    <div class="div">
+
+    </div>
+    <div class="container">
+    <div class="card">
+       <figure class="front">1</figure>
+        <figure class="back">2</figure>
+    </div>
+    </div>
+</body>
+</html>
