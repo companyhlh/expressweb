@@ -10,6 +10,12 @@ wx:elsf='{{}}'
 wx:for="{{}}"
 wx:for-item="itemx" //vaule
 wx:for-index='ix' //key
+
+for循环中常出现的错误提示：
+在实际开发过程中遇到 warning： Now you can provide attr "wx:key" for a "wx:for" to improve performance
+解决方案：添加wx:key="唯一标识"
+参考：http://blog.csdn.net/sinat_31177681/article/details/53557642
+
 (4)模板的使用
 定义模板文件，有2种方式
 （1）如在pages 下新建 templates/header.wxml
